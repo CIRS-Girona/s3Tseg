@@ -143,9 +143,8 @@ def main(args, config):
     # ================ initializing loss ================
 
     if config.DATA.CLASS_FREQ is not None:
-        weights = 1/(len(config.DATA.CLASS_FREQ)*torch.FloatTensor(config.DATA.CLASS_FREQ))
-        # weights /= sum(weights) # no normalization since reduction='mean' for the loss
-        # see: https://discuss.pytorch.org/t/passing-the-weights-to-crossentropyloss-correctly/14731/10
+        weights = 1/torch.FloatTensor(config.DATA.CLASS_FREQ)
+        weights /= sum(weights)
         weights = weights.cuda(non_blocking=True)
     else:
         weights = None
