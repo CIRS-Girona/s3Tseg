@@ -22,16 +22,16 @@ The file [main.py](https://github.com/CIRS-Girona/s3Tseg/blob/main/main.py) cont
 --wandb_entity		WandB entity.
 --wandb_project		WandB project name.
 --wandb_api_key		WandB api key.
---data_dir			Path to training data.
---out_dir			Path to save logs, checkpoints and models.
---encoder			Type of encoder architecture.
---decoder			Type of decoder architecture.
-[--config_file]		Path to configuration file.
-[--load_checkpoint]	Path to checkpoint to resume training from.
-[--load_weights]	Path to pretrained weights.
-[--seed]			Random seed.
-[--num_workers]		Number of data loading workers per GPU.
-[--batch_size]		Number of distinct images loaded per GPU.
+--data_dir		Path to training data.
+--out_dir		Path to save logs, checkpoints and models.
+--encoder		Type of encoder architecture.
+--decoder		Type of decoder architecture.
+[--config_file]	        Path to configuration file.
+[--load_checkpoint]     Path to checkpoint to resume training from.
+[--load_weights]        Path to pretrained weights.
+[--seed]		Random seed.
+[--num_workers]	        Number of data loading workers per GPU.
+[--batch_size]	        Number of distinct images loaded per GPU.
 ```
 
 The arguments in brackets are optional. Further details on WandB specific arguments can be found in [Weights & Biases documentation](https://docs.wandb.ai/guides/track/environment-variables). The default configurations of the implemented architectures can be found in the file [configs/models.py](https://github.com/CIRS-Girona/s3Tseg/blob/main/configs/models.py). Modifications to the configurations of these architectures and to the default training hyperparameters can be optionally done via a yaml file; see [config.yaml](https://github.com/CIRS-Girona/s3Tseg/blob/main/config.yaml) for an example. The file [configs/base.py](https://github.com/CIRS-Girona/s3Tseg/blob/main/configs/base.py), on the other hand, contains all the base configuration parameters.
@@ -45,16 +45,16 @@ torchrun --nproc_per_node=1 --master_port=1234 main.py --wandb_entity <wandb-use
 
 The file [eval.py](https://github.com/CIRS-Girona/s3Tseg/blob/main/eval.py) contains qualitative, quantitative and runtime performance evaluation metrics for semantic segmentation. It takes the following arguments:
 ```
---data_dir			Path to dataset.
---model_path		Path to trained model.
---encoder			Type of encoder architecture.
---decoder			Type of decoder architecture.
-[--mode]			Evaluation mode.
-[--config_file]		Path to configuration file.
-[--cmap_file]		Path to color map file.
-[--out_dir]			Path to save evaluation report.
-[--device]			Device to compute runtime statistics for.
-[--batch_size]		Number of distinct images per batch.
+--data_dir        Path to dataset.
+--model_path      Path to trained model.
+--encoder         Type of encoder architecture.
+--decoder         Type of decoder architecture.
+[--mode]          Evaluation mode.
+[--config_file]   Path to configuration file.
+[--cmap_file]     Path to color map file.
+[--out_dir]       Path to save evaluation report.
+[--device]        Device to compute runtime statistics for.
+[--batch_size]    Number of distinct images per batch.
 ```
 
 The arguments in brackets are optional. Mode can be set to either *quantitative*, *qualitative* or *runtime*. Device can be set to either *cpu* or *cuda*.
