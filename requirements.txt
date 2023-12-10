@@ -1,0 +1,9 @@
+matplotlib>=3.7.1
+numpy>=1.21.5
+Pillow>=9.5.0
+PyWavelets>=1.4.1
+torch>=2.0.0
+torchinfo>=1.7.2
+torchvision>=0.15.1
+wandb>=0.14.2
+yacs>=0.1.8
